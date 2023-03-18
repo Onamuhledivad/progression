@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Progresion';
+
+  // constructor (
+  //   private fb: FormBuilder,
+  //   public form: FormGroup
+  //   ) { }
+
+  //   ngOnInit (): void {
+  //   this.form = this.fb.group ({
+  //   limite: [null, [Validators.required, Validators.pattern ("^[0-9")]],
+  //   });
+  //   }
+
+  
 }
