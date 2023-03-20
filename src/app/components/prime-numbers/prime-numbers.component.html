@@ -1,1 +1,11 @@
-<p>prime-numbers works!</p>
+<div *ngIf="primeNumbers.length"
+class="alert alert-success" role="alert">
+    <div *ngFor="let prime of primeNumbers">
+    <p>{{ prime }}</p>
+    </div>
+</div>
+
+<div *ngIf="!primeNumbers.length && numSeries.length"
+class="animate__animated animate__bounce alert alert-danger" role="alert">
+    <p>No hay números primos en la sucesión</p>
+</div>

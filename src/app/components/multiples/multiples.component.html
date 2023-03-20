@@ -1,1 +1,11 @@
-<p>multiples works!</p>
+<div *ngIf="multiplesNum.length"
+class="alert alert-success" role="alert">
+    <div *ngFor="let prime of multiplesNum">
+    <p>{{ prime }}</p>
+    </div>
+</div>
+
+<div *ngIf="!multiplesNum.length && numSeries.length"
+class="animate__animated animate__shakeX alert alert-danger" role="alert">
+    <p>No hay números multiplos en la sucesión</p>
+</div>

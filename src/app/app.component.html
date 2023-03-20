@@ -1,22 +1,58 @@
 <mat-toolbar color="primary">
   <span>EJERCICIO || DESARROLLADOR FRONT END</span>
 </mat-toolbar>
-<div class="container">
-  <mat-grid-list cols="3" rowHeight="200px">
-    <mat-grid-tile>
-      <mat-grid-tile-header>Form</mat-grid-tile-header>
-      1
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-grid-tile-header>Prime Numbers</mat-grid-tile-header>
-      2
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-grid-tile-header>Multiples Numbers</mat-grid-tile-header>
-      3
+<div class="container text-center">
+  <div class="row">
+    <div class="col bg-content">
+      <h3>Formula </h3>
+      <p>an + b</p>
+      <form [formGroup]="nForm" (ngSubmit)="start()" class="needs-validation" novalidate>
+        <div class="form-floating mb-3">
+          <input
+          formControlName="nValue"
+          type="text" 
+          maxlength="3"
+          class="form-control" 
+          id="floatingInput"
+          [class.isValid]="this.nForm.get('nValue')?.valid"
+          [class.isInvalid]="this.nForm.get('nValue')?.invalid 
+          && this.nForm.get('nValue')?.touched
+          ">
+          <label for="floatingInput">
+            Ingresa el valor de N
+          </label>
+        </div>        
+        <button
+        [disabled]="nForm.invalid" 
+        type="submit" class="btn btn-outline-primary btn-lg">
+          Calcular
+        </button>
+      </form>
 
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div *ngIf="submitted">
+    <h4>Sucesión Lineal:</h4>
+    <div *ngIf="serieArray.length"
+      class="alert alert-success" role="alert">
+    <div *ngFor="let num of serieArray">
+      <p> {{ num }}</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="col">
+      <div class="bg-content">
+        <h3>Números Primos</h3>
+        <app-prime-numbers [numSeries]="serieArray"></app-prime-numbers>
+      </div>
+    </div>
+    <div class="col">
+      <div class="bg-content">
+        <h3>Números multiplos de 3</h3>
+        <app-multiples [numSeries]="serieArray"></app-multiples>
+      </div>
+    </div>
+  </div>
 </div>
